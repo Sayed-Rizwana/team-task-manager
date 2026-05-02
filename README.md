@@ -178,19 +178,35 @@ The frontend stores the JWT token in `localStorage` and calls the backend with `
 ## Railway Deployment
 
 1. Push the project to GitHub.
-2. Create a new Railway project from the repository.
-3. Set these Railway environment variables:
+2. In Railway, click `New Project` and select `Deploy from GitHub repo`.
+3. Choose `Sayed-Rizwana/team-task-manager`.
+4. Railway should detect the Node app automatically. This repo also includes [railway.json](/abs/path/c:/Users/rizwa/OneDrive/Documents/Desktop/Teamtaskmanager/railway.json) to define:
+   - `startCommand`: `npm start`
+   - `healthcheckPath`: `/health`
+5. Set these Railway environment variables:
    - `MONGO_URI`
    - `JWT_SECRET`
-   - `PORT` (optional, Railway provides this automatically)
-4. Railway will run:
+   - `PORT` is optional because Railway injects it automatically
+6. Railway will run:
 
 ```bash
 npm install
 npm start
 ```
 
-5. After deploy, open the generated Railway URL.
+7. After deploy, open the generated Railway URL.
+8. If you use MongoDB Atlas, make sure Atlas allows Railway to connect:
+   - In Atlas Network Access, allow `0.0.0.0/0` for a quick deploy, or restrict to your preferred ranges later
+   - Make sure your Atlas database user has read/write access to the target database
+
+## Railway Checklist
+
+- GitHub repo connected
+- `MONGO_URI` added in Railway Variables
+- `JWT_SECRET` added in Railway Variables
+- Deploy succeeds
+- `/health` returns `200`
+- App opens from the Railway public domain
 
 ## Notes
 
