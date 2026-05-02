@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Task Manager | Tasks</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body data-page="tasks">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Team Task Manager</p>
+      <h1 class="page-title">Tasks</h1>
+    </div>
+    <div class="topbar-actions">
+      <div class="user-chip">
+        <span id="current-user-name">User</span>
+        <span id="current-user-role" class="role-pill">member</span>
+      </div>
+      <button id="logout-button" class="button button-secondary" type="button">Logout</button>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <a class="nav-link" href="/dashboard.html">Dashboard</a>
+    <a class="nav-link" href="/projects.html">Projects</a>
+    <a class="nav-link active" href="/tasks.html">Tasks</a>
+  </nav>
+
+  <main class="shell">
+    <section class="card section-toolbar">
+      <div>
+        <h2>Task Board</h2>
+        <p class="muted">Admins can create and assign tasks. Members can update the status of their work.</p>
+      </div>
+      <button id="new-task-button" class="button button-primary" type="button">New Task</button>
+    </section>
+
+    <section class="card filter-bar">
+      <label>
+        <span>Project</span>
+        <select id="task-project-filter"></select>
+      </label>
+      <label>
+        <span>Status</span>
+        <select id="task-status-filter">
+          <option value="">All Statuses</option>
+          <option value="pending">Pending</option>
+          <option value="in-progress">In Progress</option>
+          <option value="completed">Completed</option>
+        </select>
+      </label>
+    </section>
+
+    <section id="tasks-list" class="stack-list"></section>
+  </main>
+
+  <div id="task-modal" class="modal is-hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="task-modal-title">Create Task</h3>
+        <button class="icon-button" data-close-modal="task-modal" type="button">x</button>
+      </div>
+      <form id="task-form" class="modal-form">
+        <label>
+          <span>Title</span>
+          <input type="text" id="task-title" required>
+        </label>
+        <label>
+          <span>Description</span>
+          <textarea id="task-description" rows="4"></textarea>
+        </label>
+        <label>
+          <span>Project</span>
+          <select id="task-project-input" required></select>
+        </label>
+        <label>
+          <span>Assign to</span>
+          <select id="task-assignee-input"></select>
+        </label>
+        <label>
+          <span>Status</span>
+          <select id="task-status-input">
+            <option value="pending">Pending</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+        </label>
+        <label>
+          <span>Deadline</span>
+          <input type="date" id="task-deadline-input">
+        </label>
+        <button class="button button-primary" type="submit">Save Task</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

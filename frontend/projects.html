@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Task Manager | Projects</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body data-page="projects">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Team Task Manager</p>
+      <h1 class="page-title">Projects</h1>
+    </div>
+    <div class="topbar-actions">
+      <div class="user-chip">
+        <span id="current-user-name">User</span>
+        <span id="current-user-role" class="role-pill">member</span>
+      </div>
+      <button id="logout-button" class="button button-secondary" type="button">Logout</button>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <a class="nav-link" href="/dashboard.html">Dashboard</a>
+    <a class="nav-link active" href="/projects.html">Projects</a>
+    <a class="nav-link" href="/tasks.html">Tasks</a>
+  </nav>
+
+  <main class="shell">
+    <section class="card section-toolbar">
+      <div>
+        <h2>Project Workspace</h2>
+        <p class="muted">Admins can create projects and manage members. Members can review their assigned projects.</p>
+      </div>
+      <button id="new-project-button" class="button button-primary" type="button">New Project</button>
+    </section>
+
+    <section id="projects-grid" class="project-grid"></section>
+  </main>
+
+  <div id="project-modal" class="modal is-hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Create Project</h3>
+        <button class="icon-button" data-close-modal="project-modal" type="button">x</button>
+      </div>
+      <form id="project-form" class="modal-form">
+        <label>
+          <span>Project name</span>
+          <input type="text" id="project-name" required>
+        </label>
+        <label>
+          <span>Description</span>
+          <textarea id="project-description" rows="4" placeholder="Short project summary"></textarea>
+        </label>
+        <button class="button button-primary" type="submit">Save Project</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="member-modal" class="modal is-hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Manage Members</h3>
+        <button class="icon-button" data-close-modal="member-modal" type="button">x</button>
+      </div>
+      <div class="modal-form">
+        <label>
+          <span>Select user</span>
+          <select id="member-user-select"></select>
+        </label>
+        <button id="add-member-button" class="button button-primary" type="button">Add to Project</button>
+        <div id="current-members" class="stack-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>
