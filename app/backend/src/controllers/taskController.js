@@ -115,7 +115,6 @@ exports.updateTask = asyncHandler(async (req, res) => {
   const project = await Project.findById(task.projectId);
   const isAdmin = req.user.role === 'admin';
   const isAssignedUser = task.assignedTo && task.assignedTo.toString() === req.user._id.toString();
-  const isProjectUser = project && isProjectMember(project, req.user._id);
 
   if (!isAdmin && !isAssignedUser) {
     throw forbidden('Access denied');

@@ -1,11 +1,13 @@
 {
   "name": "team-task-manager",
   "version": "1.0.0",
-  "description": "Full-stack Team Task Manager with authentication, project and task management",
-  "main": "backend/server.js",
+  "description": "Production-ready Team Task Manager with a Railway-ready Node.js, Express, and MongoDB stack",
+  "main": "app/backend/server.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "dev": "node --watch backend/server.js"
+    "start": "node app/backend/server.js",
+    "dev": "node --watch app/backend/server.js",
+    "client:dev": "vite --config app/frontend/vite.config.js",
+    "build": "vite build --config app/frontend/vite.config.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -13,7 +15,14 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.0.3"
+    "mongoose": "^8.0.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.0",
+    "vite": "^7.1.12"
   },
   "engines": {
     "node": ">=18.0.0"
